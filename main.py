@@ -33,6 +33,8 @@ from time import localtime, strftime, time
 # init()
 # from colorama import Fore, Back, Style
 
+Answers = {'q1': 'A', 'q2': 'C', 'q3': 'D', 'q4': 'B', 'q5': 'B', 'q6': 'B', 'q7': 'D', 'q8': 'B', 'q9': 'C', 'q10': 'C', 'q11': 'D', 'q12': 'B', 'q13': 'B', 'q14': 'D', 'q15': 'B', 'q16': 'A', 'q17': 'D', 'q18': 'A', 'q19': 'B', 'q20': 'C', 'q21': 'D', 'q22': 'B', 'q23': 'D', 'q24': 'B', 'q25': 'D', 'q26': 'B', 'q27': 'B', 'q28': 'D', 'q29': 'C', 'q30': 'C', 'q31': 'B', 'q32': 'C', 'q33': 'D', 'q34': 'B', 'q35': 'B', 'q36': 'D', 'q37': 'D', 'q38': 'D', 'q39': 'B', 'q40': 'C', 'q41': 'B', 'q42': 'B', 'q43': 'C', 'q44': 'C', 'q45': 'C', 'q46': 'C', 'q47': 'A', 'q48': 'A', 'q49': 'B', 'q50': 'C', 'q51': 'C', 'q52': 'A', 'q53': 'B', 'q54': 'C', 'q55': 'C', 'q56': 'B', 'q57': 'A', 'q58': 'C', 'q59': 'A', 'q60': 'D', 'q61': 'B', 'q62': 'C', 'q63': 'A', 'q64': 'C', 'q65': 'A', 'q66': 'C', 'q67': 'B', 'q68': 'D', 'q69': 'B', 'q70': 'B', 'q71': 'D', 'q72': 'A', 'q73': 'B', 'q74': 'C', 'q75': 'B', 'q76': 'D', 'q77': 'A', 'q78': 'D', 'q79': 'D', 'q80': 'A', 'q81': '', 'q82': '', 'q83': '', 'q84': '', 'q85': '', 'q86': '', 'q87': '', 'q88': '', 'q89': '', 'q90': '', 'q91': '', 'q92': '', 'q93': '', 'q94': '', 'q95': '', 'q96': '', 'q97': '', 'q98': '', 'q99': '', 'q100': ''}
+
 def process_dir(root_dir, subdir, template):
     curr_dir = os.path.join(root_dir, subdir)
 
@@ -363,7 +365,10 @@ def process_files(omr_files, template, args, out):
         #This evaluates and returns the score attribute
         # TODO: Automatic scoring
         #score = evaluate(resp, explain=explain)
-        score = 0
+        score = 0    
+        for key, item in Answers.items():
+            if key in resp and item == resp[key]:
+                score += 1
         
         respArray=[]
         for k in out.respCols:
